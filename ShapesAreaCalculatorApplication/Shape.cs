@@ -6,12 +6,14 @@
         protected double Height { get; set; }
         protected readonly double Area;
 
-        public Shape()
+        public Shape(double width, double height)
         {
+            Width = width;
+            Height = height;
             Area = Width * Height;
         }
 
-        protected virtual void DisplayInformations()
+        public virtual void DisplayInformations()
         {
         }
     }
