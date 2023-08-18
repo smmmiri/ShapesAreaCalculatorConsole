@@ -1,8 +1,8 @@
-# ShapesAreaCalculatorConsole
+# Shapes Area Calculator Console
 
 ## Project Description
 
-This console application calculate area of shapes and print it for you.
+This console application calculates area of shapes and prints it for you.
 
 ## What is this code good for practicing?
 
