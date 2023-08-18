@@ -11,49 +11,42 @@ do
 
     try
     {
-        Console.WriteLine();
-        var message = input switch
-        {
-            "1" => "Enter the side value between 1 and 2000: ",
-            "2" => "Enter the width and height values between 1 and 2000 with a space between them: ",
-            "3" => "Enter the radius value between 1 and 2000: ",
-            _ => throw new Exception()
-        };
-        Console.Write(message);
-
-        string[] number;
         switch (input)
         {
             case "1":
-                number = Console.ReadLine().Split(" ");
-                if (double.TryParse(number[0], out double side) && side > 2000 && side < 1)
+                Console.WriteLine("\nEnter the side value between 1 and 2000: ");
+                if (int.TryParse(Console.ReadLine(), out int side) && side >= 1 && side <= 2000)
                 {
-                    
+                    new Square(side, side).DisplayInformations();
+                }
+                else
+                {
                     throw new Exception();
                 }
-                new Rectangle(double.Parse(number[0]), double.Parse(number[1])).DisplayInformations();
                 break;
             case "2":
-                number = Console.ReadLine().Split(" ");
-                var s = !double.TryParse(number[0], out double sds);
-                if ((!double.TryParse(number[0], out double width) & !double.TryParse(number[1], out double height)) &&
-                    (width > 2000 || width < 1) && (height > 2000 || height < 1))
+                Console.WriteLine("\nEnter the height value between 1 and 2000: ");
+                if (int.TryParse(Console.ReadLine(), out int height) && height >= 1 && height <= 2000)
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("\nEnter the width value between 1 and 2000: ");
+                    if (int.TryParse(Console.ReadLine(), out int width) && width >= 1 && width <= 2000)
+                    {
+                        new Rectangle(width, height).DisplayInformations();
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                else
+                {
                     throw new Exception();
                 }
-                new Rectangle(width, height).DisplayInformations();
                 break;
             case "3":
-                number = Console.ReadLine().Split(" ");
-                if (double.TryParse(number[0], out double radius) && radius > 2000 && radius < 1)
-                {
-                    throw new Exception();
-                }
-                new Rectangle(double.Parse(number[0]), double.Parse(number[1])).DisplayInformations();
                 break;
             default:
-                break;
+                throw new Exception();
         }
     }
     catch (Exception)
